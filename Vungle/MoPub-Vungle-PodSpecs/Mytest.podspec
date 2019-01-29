@@ -4,7 +4,7 @@
 #
 
 Pod::Spec.new do |s|
-s.name             = 'MoPub-Vungle-Adapters'
+s.name             = 'Mytest'
 s.version          = '6.3.2.1'
 s.summary          = 'Vungle Adapters for mediating through MoPub.'
 s.description      = <<-DESC

@@ -11,6 +11,7 @@
 #if __has_include("MoPub.h")
     #import "MPLogging.h"
     #import "MoPub.h"
+    #import "MPError.h"
 #endif
 #import "MPVungleRouter.h"
 
