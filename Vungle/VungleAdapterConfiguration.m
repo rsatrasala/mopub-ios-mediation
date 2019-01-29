@@ -8,6 +8,7 @@
 #import <VungleSDK/VungleSDK.h>
 #import "VungleAdapterConfiguration.h"
 #import "MPVungleRouter.h"
+#import "MPLogEvent.h"
 
 // Errors
 static NSString * const kAdapterErrorDomain = @"com.mopub.mopub-ios-sdk.mopub-vungle-adapters";
@@ -23,7 +24,7 @@ typedef NS_ENUM(NSInteger, VungleAdapterErrorCode) {
 + (void)updateInitializationParameters:(NSDictionary *)parameters {
     // These should correspond to the required parameters checked in
     // `initializeNetworkWithConfiguration:complete:`
-    NSString * appId = parameters[kVungleAppIdKey];
+    NSString *appId = parameters[kVungleAppIdKey];
     
     if (appId != nil) {
         NSDictionary * configuration = @{ kVungleAppIdKey: appId };
@@ -54,7 +55,7 @@ typedef NS_ENUM(NSInteger, VungleAdapterErrorCode) {
                                   complete:(void(^)(NSError *))complete {
     NSString * appId = configuration[kVungleAppIdKey];
     if (appId == nil) {
-        NSError * error = [NSError errorWithDomain:kAdapterErrorDomain code:VungleAdapterErrorCodeMissingAppId userInfo:@{ NSLocalizedDescriptionKey: @"Missing the appId parameter when configuring your network in the MoPub website." }];
+        NSError *error = [NSError errorWithDomain:kAdapterErrorDomain code:VungleAdapterErrorCodeMissingAppId userInfo:@{ NSLocalizedDescriptionKey: @"Missing the appId parameter when configuring your network in the MoPub website." }];
         MPLogEvent([MPLogEvent error:error message:nil]);
         
         if (complete != nil) {
